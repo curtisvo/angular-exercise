@@ -2,3 +2,16 @@
   height: 100px;
   background-color: #B9090B;
 }
+
+.row {
+	display: flex;
+	height: 100%;
+}
+
+.nav-menu {
+	flex: auto;
+}
+
+.content-panel {
+	flex: 70%;
+}
