@@ -1,17 +1,23 @@
 .header {
-  height: 100px;
+  height: 80px;
   background-color: #B9090B;
 }
 
+.box {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
 .row {
 	display: flex;
-	height: 100%;
+	flex: 1;
 }
 
 .nav-menu {
-	flex: auto;
+	background-color: #1a1511;
 }
 
 .content-panel {
-	flex: 70%;
+	flex: auto;
+	background-color: #38322c;
 }
