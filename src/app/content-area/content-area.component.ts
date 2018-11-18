@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ContentItem } from '../content-item';
-import { DataService } from '../data-service';
+//import { ContentItem } from '../content-item';
+//import { DataService } from '../data-service';
 import { CONTENT_ITEMS } from '../mock-content-items';
 
 @Component({
