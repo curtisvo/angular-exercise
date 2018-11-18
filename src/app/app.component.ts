@@ -69,6 +69,7 @@ export class AppComponent {
     if (event.key === "Enter") {
       if (this.focus) {
         this.selectedShowIndex = 0;
+        this.focus = false;
       }
       else {
         this.contentAreaComp.showAlert();
