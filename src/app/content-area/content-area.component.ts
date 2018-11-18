@@ -8,10 +8,23 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ContentAreaComponent implements OnInit {
   @Input() showsList; 
   @Input() currentNavTitle;
+  focus = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // Adding an event listener to both components will not offer the best performance
+  // TODO research other ways
+  onKey(event: any) {
+    if (focus === true) {
+      console.log("contentarea");
+    }
+    if (event.key === "ArrowRight" && focus === false) {
+      focus = true; 
+
+    }
   }
 
 }
