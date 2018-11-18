@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavItem } from './nav-item';
 import { NAV_ITEMS } from './mock-nav-items';
 import { CONTENT_ITEMS } from './mock-content-items';
 
