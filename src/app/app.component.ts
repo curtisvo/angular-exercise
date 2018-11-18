@@ -18,7 +18,7 @@ export class AppComponent {
   
   focus: Boolean;
   selectedNavItem: NavItem;
-  selectedNavItemIndex;
+  selectedNavItemId;
   selectedShowIndex;
 
   ngOnInit() {
@@ -27,6 +27,8 @@ export class AppComponent {
   }
 
   onKey(event: any) {
+    let selectedNavItemIndex = this.navItems.indexOf(this.selectedNavItem);
+
     if (event.key === "ArrowRight") {
       if (this.focus) {
         this.focus = false;
@@ -48,8 +50,8 @@ export class AppComponent {
     } 
 
     if (event.key === "ArrowDown") {
-      if (this.focus && this.selectedNavItemIndex < this.navItems.length-1) {
-        this.setSelectedNavItem(this.selectedNavItemIndex+1);
+      if (this.focus && selectedNavItemIndex < this.navItems.length-1) {
+        this.setSelectedNavItem(selectedNavItemIndex+1);
       }
       // TODO hardcoded max index, this should be fixed
       else if (!this.focus && this.selectedShowIndex >= 0 && this.selectedShowIndex < 4) {
@@ -58,8 +60,8 @@ export class AppComponent {
     }
     
     if (event.key === "ArrowUp") {
-      if (this.focus && this.selectedNavItemIndex > 0) {
-        this.setSelectedNavItem(this.selectedNavItemIndex-1);
+      if (this.focus && selectedNavItemIndex > 0) {
+        this.setSelectedNavItem(selectedNavItemIndex-1);
       }
       else if (!this.focus && this.selectedShowIndex >= 4) {
         this.selectedShowIndex -= 4;
@@ -79,7 +81,7 @@ export class AppComponent {
   }
 
   setSelectedNavItem(index: number) {
-    this.selectedNavItemIndex = index;
+    this.selectedNavItemId = this.navItems[index].id;
     this.selectedNavItem = this.navItems[index];
   }
 }
