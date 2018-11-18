@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavItem } from './nav-item';
 import { NAV_ITEMS } from './mock-nav-items';
-import { CONTENT_ITEMS } from './mock-content-items';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +11,10 @@ import { CONTENT_ITEMS } from './mock-content-items';
 export class AppComponent {
   // TODO replace these with services
   navItems = NAV_ITEMS;
-  shows = CONTENT_ITEMS;
   
   focus: Boolean;
   selectedNavItem: NavItem;
   selectedNavItemIndex;
-  showsList;
 
   ngOnInit() {
     this.setSelectedNavItem(0);
@@ -26,11 +23,9 @@ export class AppComponent {
 
   onKey(event: any) {
     if (event.key === "ArrowRight" && this.focus) {
-      console.log("switch focus to content");
       this.focus = false;
     } 
     if (event.key === "ArrowLeft" && !this.focus) {
-      console.log("switch focus to nav");
       this.focus = true;
     } 
     if (event.key === "ArrowDown" && this.focus && this.selectedNavItemIndex < this.navItems.length-1) {
@@ -46,6 +41,5 @@ export class AppComponent {
   setSelectedNavItem(index: number) {
     this.selectedNavItemIndex = index;
     this.selectedNavItem = this.navItems[index];
-    this.showsList = this.shows[this.selectedNavItem.id];
   }
 }
