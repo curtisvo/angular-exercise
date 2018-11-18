@@ -1,7 +1,7 @@
 export const NAV_ITEMS = 
 	[{
 		id: 1,
-		title: 'Suggestions for you'
+		title: 'Suggestions For You'
 	},
 	{
 		id: 2, 

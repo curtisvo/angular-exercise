@@ -1,5 +1,5 @@
-<h2>{{currentNavTitle}}</h2> {{focus}}
-<div class="thumbnails-panel" (document:keydown)="onKey($event)">
+<h2>{{currentNavTitle}}</h2>
+<div class="thumbnails-panel">
 	<div class="thumbnail" *ngFor="let show of showsList; let i=index">
 		<img src="../assets/images/{{show}}" class="thumbnail-image" [class.selected-show]="i === selectedShowIndex">
 	</div>
