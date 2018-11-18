@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 //import { ContentItem } from '../content-item';
-//import { DataService } from '../data-service';
+import { DataService } from '../data.service';
 import { CONTENT_ITEMS } from '../mock-content-items';
 
 @Component({
@@ -16,10 +16,11 @@ export class ContentAreaComponent implements OnInit {
   private showsList;
   private selectedShowIndex: number;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.selectedShowIndex = null;
+    this.dataService.test();
   }
 
   // react to changes in the selected list index
