@@ -32,11 +32,11 @@ export class AppComponent {
       if (this.focus) {
         this.focus = false;
       }
-      this.contentAreaComp.moveSelection("right");
+      this.contentAreaComp.moveSelectionRight();
     } 
 
     if (event.key === "ArrowLeft") {
-      if (!this.contentAreaComp.moveSelection("left")) {
+      if (!this.contentAreaComp.moveSelectionLeft()) {
         this.focus = true;
       }
     } 
@@ -46,7 +46,7 @@ export class AppComponent {
         this.setSelectedNavItem(selectedNavItemIndex+1);
       }
       else if (!this.focus) {
-        this.contentAreaComp.moveSelection("down");
+        this.contentAreaComp.moveSelectionDown();
       }
     }
     
@@ -55,13 +55,13 @@ export class AppComponent {
         this.setSelectedNavItem(selectedNavItemIndex-1);
       }
       else if (!this.focus) {
-        this.contentAreaComp.moveSelection("up");
+        this.contentAreaComp.moveSelectionUp();
       }
     }
 
     if (event.key === "Enter") {
       if (this.focus) {
-        this.contentAreaComp.moveSelection("right");
+        this.contentAreaComp.moveSelectionRight();
         this.focus = false;
       }
       else {

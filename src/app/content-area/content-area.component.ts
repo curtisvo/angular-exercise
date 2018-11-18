@@ -29,41 +29,39 @@ export class ContentAreaComponent implements OnInit {
     this.showsList = this.mockContentItems[index];
   }
 
-  moveSelection(direction: string) {
-    if(direction === "up") {
-      if (this.selectedShowIndex >= 4) {
-        this.selectedShowIndex -= 4; 
-      }
+  moveSelectionUp() {
+    if (this.selectedShowIndex >= 4) {
+      this.selectedShowIndex -= 4; 
     }
-    else if (direction === "down") {
-      if (this.selectedShowIndex+4 < this.showsList.length) {
-        this.selectedShowIndex += 4;
-      }
+  }
+
+  moveSelectionDown() {
+    if (this.selectedShowIndex+4 < this.showsList.length) {
+      this.selectedShowIndex += 4;
     }
-    else if (direction === "left") {
-      if (this.selectedShowIndex % 4 === 0) {
-        // if the leftmost show of the row, move focus to nav
-	this.selectedShowIndex = null;
+  }
+
+  moveSelectionLeft() {
+    if (this.selectedShowIndex % 4 === 0) {
+      // if the leftmost show of the row, move focus to nav
+      this.selectedShowIndex = null;
 	
-	// false tells nav to retake focus
-	return false;
-      }
-      else {
-        this.selectedShowIndex--;
-      }
-    }
-    else if (direction === "right") {
-      if (this.selectedShowIndex === null) {
-        this.selectedShowIndex = 0;
-      }
-      else if (this.selectedShowIndex % 4 < 3 && this.selectedShowIndex+1 < this.showsList.length) {
-        this.selectedShowIndex++;
-      }
+      // false tells nav to retake focus
+      return false;
     }
     else {
-      console.log("Error! invalid direction " + direction);
+      this.selectedShowIndex--;
     }
     return true;
+  }
+
+  moveSelectionRight() {
+    if (this.selectedShowIndex === null) {
+      this.selectedShowIndex = 0;
+    }
+    else if (this.selectedShowIndex % 4 < 3 && this.selectedShowIndex+1 < this.showsList.length) {
+      this.selectedShowIndex++;
+    }
   }
 
   showAlert() {
