@@ -19,7 +19,6 @@ export class AppComponent {
   focus: Boolean;
   selectedNavItem: NavItem;
   selectedNavItemId;
-  selectedShowIndex;
 
   ngOnInit() {
     this.setSelectedNavItem(0);
@@ -32,20 +31,13 @@ export class AppComponent {
     if (event.key === "ArrowRight") {
       if (this.focus) {
         this.focus = false;
-        this.selectedShowIndex = 0;
       }
-      else if (this.selectedShowIndex % 4 < 3) {
-        this.selectedShowIndex++;
-      }
+      this.contentAreaComp.moveSelection("right");
     } 
 
     if (event.key === "ArrowLeft") {
-      if (this.selectedShowIndex % 4 === 0) {
+      if (!this.contentAreaComp.moveSelection("left")) {
         this.focus = true;
-        this.selectedShowIndex = null;
-      }
-      else if (this.selectedShowIndex > 0) {
-        this.selectedShowIndex--;
       }
     } 
 
@@ -53,9 +45,8 @@ export class AppComponent {
       if (this.focus && selectedNavItemIndex < this.navItems.length-1) {
         this.setSelectedNavItem(selectedNavItemIndex+1);
       }
-      // TODO hardcoded max index, this should be fixed
-      else if (!this.focus && this.selectedShowIndex >= 0 && this.selectedShowIndex < 4) {
-        this.selectedShowIndex += 4;
+      else if (!this.focus) {
+        this.contentAreaComp.moveSelection("down");
       }
     }
     
@@ -63,14 +54,14 @@ export class AppComponent {
       if (this.focus && selectedNavItemIndex > 0) {
         this.setSelectedNavItem(selectedNavItemIndex-1);
       }
-      else if (!this.focus && this.selectedShowIndex >= 4) {
-        this.selectedShowIndex -= 4;
+      else if (!this.focus) {
+        this.contentAreaComp.moveSelection("up");
       }
     }
 
     if (event.key === "Enter") {
       if (this.focus) {
-        this.selectedShowIndex = 0;
+        this.contentAreaComp.moveSelection("right");
         this.focus = false;
       }
       else {
