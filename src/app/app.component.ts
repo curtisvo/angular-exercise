@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ContentAreaComponent } from './content-area/content-area.component';
 import { NavItem } from './nav-item';
-import { NAV_ITEMS } from './mock-nav-items';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +13,22 @@ export class AppComponent {
   @ViewChild(ContentAreaComponent)
   private contentAreaComp: ContentAreaComponent;
 
-  // TODO replace these with services
-  navItems: NavItem[] = NAV_ITEMS;
+  navItems: NavItem[];
   
   focus: Boolean;
   selectedNavItem: NavItem;
   selectedNavItemId;
 
+  constructor(private dataService: DataService) { }
+  
   ngOnInit() {
+    this.retrieveNavItems();
     this.setSelectedNavItem(0);
     this.focus = true;
+  }
+
+  retrieveNavItems() {
+    this.navItems = this.dataService.getNavItems();
   }
 
   onKey(event: any) {

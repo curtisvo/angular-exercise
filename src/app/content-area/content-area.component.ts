@@ -1,22 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
-//import { ContentItem } from '../content-item';
-//import { DataService } from '../data-service';
-import { CONTENT_ITEMS } from '../mock-content-items';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-content-area',
   templateUrl: './content-area.component.html',
   styleUrls: ['./content-area.component.scss']
 })
+
 export class ContentAreaComponent implements OnInit {
   private _selectedListIndex: number;
   @Input() currentNavTitle;
-  mockContentItems = CONTENT_ITEMS;
 
   private showsList;
   private selectedShowIndex: number;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.selectedShowIndex = null;
@@ -26,7 +24,7 @@ export class ContentAreaComponent implements OnInit {
   @Input()
   set selectedListIndex(index: number) {
     this._selectedListIndex = index;
-    this.showsList = this.mockContentItems[index];
+    this.showsList = this.dataService.getContentItemsForList(index);
   }
 
   moveSelectionUp() {
