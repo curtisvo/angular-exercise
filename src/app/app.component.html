@@ -3,12 +3,11 @@
 	<div class="row">
 		<div class="nav-menu">
 			<ul>
-				<li>{{focus}}</li>
-				<li *ngFor="let navItem of navItems" [class.selected]="navItem === selectedNavItem" (click)="onSelect(navItem)">{{navItem.title}}</li>
+				<li *ngFor="let navItem of navItems" [class.selected]="navItem === selectedNavItem">{{navItem.title}}</li>
 			</ul>
 		</div>
 		<div class="content-panel">
-    			<app-content-area [showsList]="showsList" [currentNavTitle]="selectedNavItem.title"></app-content-area>
+    			<app-content-area [showsList]="showsList" [currentNavTitle]="selectedNavItem.title" [focus]="!focus"></app-content-area>
 		</div>
 	</div>
 </div>

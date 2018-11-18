@@ -19,11 +19,6 @@ export class AppComponent {
   selectedNavItemIndex;
   showsList;
 
-  onSelect(navItem: NavItem) {
-    this.selectedNavItem = navItem;
-    this.showsList = this.shows[navItem.id];
-  }
-
   ngOnInit() {
     this.setSelectedNavItem(0);
     this.focus = true;

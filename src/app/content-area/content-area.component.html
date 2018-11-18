@@ -1,9 +1,4 @@
-<h2>{{currentNavTitle}}</h2>
-<!--
-<div class="content-item" >
-    <img src="../../assets/images/{{content-item.filename}}"></img>
-</div>
--->
+<h2>{{currentNavTitle}}</h2> {{focus}}
 <div class="thumbnails-panel" (document:keydown)="onKey($event)">
 	<div class="thumbnail" *ngFor="let show of showsList">
 		<img src="../assets/images/{{show}}" class="thumbnail-image">
