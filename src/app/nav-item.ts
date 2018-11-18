@@ -1,4 +1,4 @@
 export class NavItem {
-  id: number,
-  title: string
-};
+  id: number;
+  title: string;
+}
