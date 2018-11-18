@@ -14,7 +14,7 @@ export class AppComponent {
   private contentAreaComp: ContentAreaComponent;
 
   // TODO replace these with services
-  navItems = NAV_ITEMS;
+  navItems: NavItem[] = NAV_ITEMS;
   
   focus: Boolean;
   selectedNavItem: NavItem;
