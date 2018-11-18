@@ -1,0 +1,17 @@
+h2 {
+	color: Gray;
+	margin: 50px;
+	font-size: 30pt;
+}
+
+.thumbnails-panel {
+	display: flex;
+
+	.thumbnail {
+		padding: 3em;
+	}
+
+	.thumbnail-image {
+		height: 300px;
+        }
+}

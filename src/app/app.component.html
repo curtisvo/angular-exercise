@@ -2,10 +2,12 @@
 <div class="box">
 <div class="row">
 	<div class="nav-menu">
-    		<app-nav-menu></app-nav-menu>
+		<ul>
+			<li *ngFor="let navItem of navItems" [class.selected]="navItem === selectedNavItem" (click)="onSelect(navItem)">{{navItem.title}}</li>
+		</ul>
 	</div>
 	<div class="content-panel">
-    		<app-content-area></app-content-area>
+    		<app-content-area [showsList]="showsList" [currentNavTitle]="selectedNavItem.title"></app-content-area>
 	</div>
 </div>
 </div>

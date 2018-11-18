@@ -21,3 +21,23 @@
 	flex: auto;
 	background-color: #38322c;
 }
+
+ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	margin-right: 3em;
+	margin-top: 2em;
+	li {
+		color: Gray;
+		margin-top: 1em;
+		padding: 1em 2em;
+		cursor: pointer;
+		background-color: #38322c;
+	}
+}
+
+li.selected {
+	background-color: #787878 !important;
+	color: #1a1511 !important;
+}

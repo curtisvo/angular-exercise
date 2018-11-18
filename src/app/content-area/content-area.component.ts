@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CONTENT_ITEMS } from '../mock-content-items';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-area',
@@ -7,12 +6,9 @@ import { CONTENT_ITEMS } from '../mock-content-items';
   styleUrls: ['./content-area.component.scss']
 })
 export class ContentAreaComponent implements OnInit {
-//@Input() content;
+  @Input() showsList; 
+  @Input() currentNavTitle;
 
-  currentNavItem = {
-  	title: 'New Releases',
-	id: 1
-  }
   constructor() { }
 
   ngOnInit() {
