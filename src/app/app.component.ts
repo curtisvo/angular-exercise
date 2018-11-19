@@ -31,6 +31,7 @@ export class AppComponent {
     this.navItems = this.dataService.getNavItems();
   }
 
+  // keyboard control event listener
   onKey(event: any) {
     let selectedNavItemIndex = this.navItems.indexOf(this.selectedNavItem);
 
@@ -77,8 +78,10 @@ export class AppComponent {
     return false;
   }
 
+  // set the currently selected nav item by index
   setSelectedNavItem(index: number) {
-    this.selectedNavItemId = this.navItems[index].id;
     this.selectedNavItem = this.navItems[index];
+    this.selectedNavItemId = this.selectedNavItem.id;
+    this.contentAreaComp.setSelectedList(this.selectedNavItem.id);
   }
 }

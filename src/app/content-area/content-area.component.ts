@@ -8,7 +8,6 @@ import { DataService } from '../data.service';
 })
 
 export class ContentAreaComponent implements OnInit {
-  private _selectedListIndex: number;
   @Input() currentNavTitle;
 
   private showsList;
@@ -21,9 +20,7 @@ export class ContentAreaComponent implements OnInit {
   }
 
   // react to changes in the selected list index
-  @Input()
-  set selectedListIndex(index: number) {
-    this._selectedListIndex = index;
+  setSelectedList(index: number) {
     this.showsList = this.dataService.getContentItemsForList(index);
   }
 
