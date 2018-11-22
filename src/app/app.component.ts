@@ -17,7 +17,6 @@ export class AppComponent {
   
   focus: Boolean;
   selectedNavItem: NavItem;
-  selectedNavItemId;
 
   constructor(private dataService: DataService) { }
   
@@ -81,7 +80,6 @@ export class AppComponent {
   // set the currently selected nav item by index
   setSelectedNavItem(index: number) {
     this.selectedNavItem = this.navItems[index];
-    this.selectedNavItemId = this.selectedNavItem.id;
     this.contentAreaComp.setSelectedList(this.selectedNavItem.id);
   }
 }
